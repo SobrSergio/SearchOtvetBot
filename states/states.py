@@ -30,7 +30,7 @@ async def set_request_question(message: types.Message, state: FSMContext):
     
     if len(list_otvet) < 5: 
         await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id + 1)
-        await message.answer('❌ По вашему запросу ничего не найдено')
+        await message.answer('❌ По вашему запросу ничего не найдено', reply_markup=main_kb)
         
     else:
         await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id + 1)
@@ -72,7 +72,7 @@ async def set_request_question_image(message: types.Message, state: FSMContext):
         
         if len(list_otvet) < 5:
             await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id + 1)
-            await bot.send_message(message.chat.id, '❌ По вашему запросу ничего не найдено')
+            await bot.send_message(message.chat.id, '❌ По вашему запросу ничего не найдено', reply_markup=main_kb)
             
         else:
             await bot.delete_message(chat_id=message.chat.id, message_id=message.message_id + 1)
